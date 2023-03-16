@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-<h1>BlogListByWriter</h1>
+<h1 style="text-align:center">Bloglar</h1>
 
 <table class="table table-bordered">
     <tr>
@@ -17,16 +17,23 @@
         <th>Sil</th>
         <th>Düzenle</th>
     </tr>
-    @foreach(var x in Model)
+    @foreach (var x in Model)
     {
         <tr>
             <td>@x.BlogID</td>
             <td>@x.BlogTitle</td>
-            <td>@x.BlogCreateDate</td>
-            <td>@x.CategoryID</td>
-            <td>@x.BlogStatus</td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-primary">Düzenle</a></td>
+            <td>@(((DateTime)x.BlogCreateDate).ToString("dd-MMMM-yyyy"))</td>
+            <td>@x.Category.CategoryName</td>
+            @if (x.BlogStatus == true)
+            {
+                <td>Aktif</td>
+            }
+            else
+            {
+                <td>Pasif</td>
+            }
+            <td><a href="/Blog/DeleteBlog/@x.BlogID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Blog/UpdateBlog/@x.BlogID" class="btn btn-primary">Düzenle</a></td>
         </tr>
     }
 </table>

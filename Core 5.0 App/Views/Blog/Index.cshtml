@@ -40,7 +40,7 @@
 						<h5 class="card-title">
 							<a href="single.html">@x.BlogTitle</a>
 						</h5>
-						<p class="card-text mb-3">@x.BlogContent.Substring(0,x.BlogContent.Substring(0,11).LastIndexOf(" "))... </p>
+						<p class="card-text mb-3">@x.BlogContent @*.Substring(0,x.BlogContent.Substring(0,11).LastIndexOf(" "))...*@ </p>
 						<a href="/Blog/BlogReadAll/@x.BlogID" class="btn btn-primary read-m">Daha Fazla</a>
 					</div>
 				</div>
