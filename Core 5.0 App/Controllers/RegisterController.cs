@@ -26,7 +26,7 @@ namespace Core_5._0_App.Controllers
 			{
 				w.WriterBool = true;
 				w.WriterAbout = "test";
-				_writerManager.WriterAdd(w);
+				_writerManager.TAdd(w);
 				return RedirectToAction("Index", "Blog");
 			}
 			else
