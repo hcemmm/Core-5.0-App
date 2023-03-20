@@ -72,7 +72,7 @@ namespace Core_5._0_App.Controllers
             {
                 var extension = Path.GetExtension(ap.WriterImage.FileName);
                 var newImage = Guid.NewGuid() + extension;
-                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwrooot/WriterImageFiles/", newImage);
+                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/WriterImageFiles/", newImage);
                 var stream = new FileStream(location,FileMode.Create);
                 ap.WriterImage.CopyTo(stream);
                 w.WriterImage = newImage;
