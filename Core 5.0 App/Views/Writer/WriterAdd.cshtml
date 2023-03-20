@@ -4,8 +4,7 @@
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
 
-@using (Html.BeginForm("WriterAdd", "Writer", FormMethod.Post))
-{
+<form class="form-group" method="post" enctype="multipart/form-data">
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -42,5 +41,5 @@
             </div>
         </div>
     </div>
-}
 
+</form>
