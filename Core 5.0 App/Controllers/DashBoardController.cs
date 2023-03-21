@@ -16,6 +16,12 @@ namespace Core_5._0_App.Controllers
         [AllowAnonymous]
         public IActionResult Index()
         {
+            var usermail = User.Identity.Name;
+            Context c = new Context();
+            var writerName = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterNameSurname).FirstOrDefault();
+            var writerImage = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterImage).FirstOrDefault();
+            ViewBag.WriterName = writerName;
+            ViewBag.WriterImage = writerImage;
 
             ViewBag.v1 = c.Blogs.Count().ToString();
             ViewBag.v2 = c.Blogs.Where(x=> x.WriterID == 1).Count().ToString();

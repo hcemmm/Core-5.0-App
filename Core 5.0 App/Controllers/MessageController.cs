@@ -7,17 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using DataAccessLayer.Concrete;
 
 namespace Core_5._0_App.Controllers
 {
     public class MessageController : Controller
     {
         MessageTwoManager _messageTwoManager = new MessageTwoManager(new EfMessageTwoRepository());
-        [AllowAnonymous]
+        Context c = new Context();
+
         public IActionResult InBox()
         {
-            int id = 2;
-            var values = _messageTwoManager.GetInboxListWithByWriter(id);
+            var usermail = User.Identity.Name;
+            var writerID = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterID).FirstOrDefault();
+
+            var values = _messageTwoManager.GetInboxListWithByWriter(writerID);
             return View(values);
         }
         [HttpGet]
@@ -25,7 +29,6 @@ namespace Core_5._0_App.Controllers
         public IActionResult MessageDetail(int id)
         {
             var value = _messageTwoManager.TGetByID(id);
-
             return View(value);
         }
         [HttpPost]
