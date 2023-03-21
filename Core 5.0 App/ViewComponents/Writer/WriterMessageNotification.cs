@@ -6,11 +6,11 @@ namespace Core_5._0_App.ViewComponents.Writer
 {
 	public class WriterMessageNotification : ViewComponent
     {
-        MessageManager _messageManager = new MessageManager(new EfMessageRepository());
+        MessageTwoManager _messageTwoManager = new MessageTwoManager(new EfMessageTwoRepository());
         public IViewComponentResult Invoke()
 		{
-			string p = "hcemmm@gmail.com";
-			var values = _messageManager.GetInboxListWithByWriter(p);
+			int id = 2;
+			var values = _messageTwoManager.GetInboxListWithByWriter(id);
 			return View(values);
 		}
 	}

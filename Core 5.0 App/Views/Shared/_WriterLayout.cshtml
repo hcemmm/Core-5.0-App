@@ -43,20 +43,12 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                            <i class="mdi mdi-email-outline"></i>
-                            <span class="count-symbol bg-warning"></span>
-                        </a>
-
+                        
                         @await Component.InvokeAsync("WriterMessageNotification")
 
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                            <i class="mdi mdi-bell-outline"></i>
-                            <span class="count-symbol bg-danger"></span>
-                        </a>
-
+                      
                         @await Component.InvokeAsync("WriterNotification")
 
 
@@ -106,7 +98,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/forms/basic_elements.html">
+                        <a class="nav-link" href="/Blog/BlogListByWriter">
                             <span class="menu-title">Bloglar</span>
                             <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                         </a>

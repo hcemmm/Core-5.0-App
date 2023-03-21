@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.MessageTwo
+
+@{
+    ViewData["Title"] = "MessageDetail";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+@using (Html.BeginForm("MessageDetail", "Message", FormMethod.Post))
+{
+    @Html.HiddenFor(x=> x.MessageID, new {@class = "form-control"})
+    @Html.HiddenFor(x=> x.MessageSenderID, new {@class = "form-control"})
+    @Html.HiddenFor(x=> x.MessageReceiverID, new {@class = "form-control"})
+    <br />
+    @Html.Label("Mesaj Başlığı")
+    @Html.TextBoxFor(x=> x.MessageSubject, new {@class = "form-control"})
+
+    <br />
+
+    @Html.Label("Mesaj İçeriği")
+    @Html.TextAreaFor(x=> x.MessageDetail,15,3, new {@class = "form-control"})
+
+    <button class="btn btn-primary">Okundu</button>
+
+
+    <br />
+}

@@ -19,5 +19,9 @@ namespace EntityLayer.Concrete
         public bool WriterBool { get; set; }
 
 		public List<Blog> Blogs { get; set; }
-	}
+
+
+        public virtual ICollection<MessageTwo> WriterSender { get; set; }
+        public virtual ICollection<MessageTwo> WriterReceiver { get; set; }
+    }
 }
